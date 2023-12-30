@@ -1,0 +1,186 @@
+[TITLE]
+
+
+[JUNCTIONS]
+;ID              	Elev        	Demand      	Pattern         
+ TS1             	5227        	2           	                	;
+ TS2             	5230        	2           	                	;
+ TS3             	5245        	2           	                	;
+ JN_BOX          	5228.3      	0           	                	;
+ CVT_X_S         	5250        	0           	                	;
+ CVT_X_N         	5251        	0           	                	;
+ TS4             	5258        	2           	                	;
+ EXP_PI_1        	5237        	0           	                	;
+ EXP_PI_2        	5209        	0           	                	;
+ TS5             	5206        	2           	                	;
+ EXP_PI_3        	5187        	0           	                	;
+ EXP_PI_4        	5170        	0           	                	;
+ TS6             	5129        	2           	                	;
+ VALVE_NODE      	5136        	0           	                	;
+ TS7             	5126        	2           	                	;
+ EXP_PI_WASH     	5114        	0           	                	;
+ TS8             	5149        	2           	                	;
+ TS9             	5157        	2           	                	;
+ CULV_X_S_2      	5109        	0           	                	;
+ TS10            	5077        	2           	                	;
+ CLV_X_N_2       	5111        	0           	                	;
+
+[RESERVOIRS]
+;ID              	Head        	Pattern         
+
+[TANKS]
+;ID              	Elevation   	InitLevel   	MinLevel    	MaxLevel    	Diameter    	MinVol      	VolCurve        	Overflow
+ T1              	5386        	10          	0           	12          	10          	0           	                	;
+
+[PIPES]
+;ID              	Node1           	Node2           	Length      	Diameter    	Roughness   	MinorLoss   	Status
+ Pi1             	JN_BOX          	CVT_X_S         	16          	1.25        	0.005       	0           	Open  	;
+ Pi2             	TS2             	TS3             	581         	1.25        	0.005       	0           	Open  	;
+ Pi3             	TS1             	TS2             	203         	12          	0.005       	0           	Open  	;
+ Pi4             	CVT_X_N         	CVT_X_S         	180         	1.25        	0.005       	0           	Open  	;
+ Pi5             	TS3             	JN_BOX          	180         	1.25        	0.005       	0           	Open  	;
+ Pi6             	CVT_X_N         	TS4             	180         	1.25        	0.005       	0           	Open  	;
+ Pi8             	TS4             	EXP_PI_1        	180         	1.25        	0.005       	0           	Open  	;
+ Pi9             	EXP_PI_1        	EXP_PI_2        	180         	1.25        	0.005       	0           	Open  	;
+ Pi10            	EXP_PI_2        	TS5             	180         	1.25        	0.005       	0           	Open  	;
+ Pi11            	TS5             	EXP_PI_3        	148         	1.25        	0.005       	0           	Open  	;
+ Pi12            	EXP_PI_3        	EXP_PI_4        	148         	1.25        	0.005       	0           	Open  	;
+ Pi13            	EXP_PI_4        	TS6             	148         	1.25        	0.005       	0           	Open  	;
+ Pi14            	VALVE_NODE      	TS7             	289         	1.25        	0.005       	0           	Open  	;
+ Pi15            	TS7             	EXP_PI_WASH     	400         	1           	0.005       	0           	Open  	;
+ Pi16            	EXP_PI_WASH     	TS8             	400         	1           	0.005       	0           	Open  	;
+ Pi17            	TS8             	TS9             	380         	1           	0.005       	0           	Open  	;
+ Pi18            	TS9             	CULV_X_S_2      	324         	1           	0.005       	0           	Open  	;
+ Pi20            	CLV_X_N_2       	TS10            	324         	1           	0.005       	0           	Open  	;
+ Pi22            	CULV_X_S_2      	CLV_X_N_2       	324         	1           	0.005       	0           	Open  	;
+ Pi23            	TS6             	VALVE_NODE      	5           	1.25        	0.005       	0           	Open  	;
+ Pi24            	T1              	JN_BOX          	70          	2           	0.005       	0           	Open  	;
+ Pi7             	CLV_X_N_2       	TS10            	50          	12          	100         	0           	Open  	;
+ Pi19            	CLV_X_N_2       	TS10            	50          	12          	100         	0           	Open  	;
+
+[PUMPS]
+;ID              	Node1           	Node2           	Parameters
+
+[VALVES]
+;ID              	Node1           	Node2           	Diameter    	Type	Setting     	MinorLoss   
+
+[TAGS]
+
+[DEMANDS]
+;Junction        	Demand      	Pattern         	Category
+
+[STATUS]
+;ID              	Status/Setting
+
+[PATTERNS]
+;ID              	Multipliers
+
+[CURVES]
+;ID              	X-Value     	Y-Value
+
+[CONTROLS]
+
+[RULES]
+
+[ENERGY]
+ Global Efficiency  	75
+ Global Price       	0
+ Demand Charge      	0
+
+[EMITTERS]
+;Junction        	Coefficient
+
+[QUALITY]
+;Node            	InitQual
+
+[SOURCES]
+;Node            	Type        	Quality     	Pattern
+
+[REACTIONS]
+;Type     	Pipe/Tank       	Coefficient
+
+
+[REACTIONS]
+ Order Bulk            	1
+ Order Tank            	1
+ Order Wall            	1
+ Global Bulk           	0
+ Global Wall           	0
+ Limiting Potential    	0
+ Roughness Correlation 	0
+
+[MIXING]
+;Tank            	Model
+
+[TIMES]
+ Duration           	0
+ Hydraulic Timestep 	1:00
+ Quality Timestep   	0:05
+ Pattern Timestep   	1:00
+ Pattern Start      	0:00
+ Report Timestep    	1:00
+ Report Start       	0:00
+ Start ClockTime    	12 am
+ Statistic          	None
+
+[REPORT]
+ Status             	No
+ Summary            	No
+ Page               	0
+
+[OPTIONS]
+ Units              	GPM
+ Headloss           	D-W
+ Specific Gravity   	1
+ Viscosity          	1
+ Trials             	40
+ Accuracy           	0.001
+ CHECKFREQ          	2
+ MAXCHECK           	10
+ DAMPLIMIT          	0
+ Unbalanced         	Continue 10
+ Pattern            	1
+ Demand Multiplier  	1.0
+ Emitter Exponent   	0.5
+ Quality            	Age mg/L
+ Diffusivity        	1
+ Tolerance          	0.01
+
+[COORDINATES]
+;Node            	X-Coord           	Y-Coord
+TS1             	1896.259          	8692.602          
+TS2             	2168.367          	8939.201          
+TS3             	2368.479          	8994.277          
+JN_BOX          	2529.891          	9045.635          
+CVT_X_S         	2733.844          	9217.687          
+CVT_X_N         	2950.680          	9400.510          
+TS4             	3167.517          	9574.830          
+EXP_PI_1        	3571.429          	8983.844          
+EXP_PI_2        	3809.524          	8645.833          
+TS5             	4073.129          	8382.228          
+EXP_PI_3        	4319.728          	8116.497          
+EXP_PI_4        	4566.327          	7869.898          
+TS6             	4804.422          	7616.922          
+VALVE_NODE      	4963.861          	7412.840          
+TS7             	5095.663          	7242.772          
+EXP_PI_WASH     	5295.493          	7013.180          
+TS8             	5503.827          	7183.248          
+TS9             	5648.384          	7327.806          
+CULV_X_S_2      	5831.207          	7057.823          
+TS10            	6101.190          	6777.211          
+CLV_X_N_2       	5826.956          	7187.500          
+T1              	2499.338          	10030.094         
+
+[VERTICES]
+;Link            	X-Coord           	Y-Coord
+
+[LABELS]
+;X-Coord             Y-Coord             Label & Anchor Node
+
+[BACKDROP]
+  DIMENSIONS  	0.000             	0.000             	10000.000         	10000.000         
+ UNITS          	None
+ FILE           	
+ OFFSET         	0.00            	0.00            
+
+[END]
